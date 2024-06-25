@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: credit
+server:
+  error:
+    include-message: always
+    include-binding-errors: never
+    include-stacktrace: never
+    include-exception: true
+    whitelabel:
+      enabled: true
