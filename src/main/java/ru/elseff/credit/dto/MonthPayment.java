@@ -14,22 +14,22 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MonthPayment {
-    @JsonProperty("Номер месяца")
+//    @JsonProperty("Номер месяца")
     Integer index;
-    @JsonProperty("Начало периода")
+//    @JsonProperty("Начало периода")
     LocalDate startPeriod;
-    @JsonProperty("Конец периода")
+//    @JsonProperty("Конец периода")
     LocalDate endPeriod;
-    @JsonProperty("Сумма долга")
+//    @JsonProperty("Сумма долга")
     Long debtBalance;
-    @JsonProperty("Сумма платежа")
+//    @JsonProperty("Сумма платежа")
     Long payment;
-    @JsonProperty("Процентная часть")
+//    @JsonProperty("Процентная часть")
     Long percentagePart;
-    @JsonProperty("Долговая часть")
+//    @JsonProperty("Долговая часть")
     Long debtPart;
-    @JsonProperty("Конец долга на конец периода")
+//    @JsonProperty("Конец долга на конец периода")
     Long debtBalanceOnPeriodEnd;
-    @JsonProperty("Описание")
+//    @JsonProperty("Описание")
     String description;
 }
