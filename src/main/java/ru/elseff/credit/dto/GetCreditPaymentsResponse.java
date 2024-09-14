@@ -14,26 +14,26 @@ import java.util.List;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class GetCreditPaymentsResponse {
-//    @JsonProperty("Платежи")
-    List<MonthPayment> payments;
-//    @JsonProperty("Ставка")
-    Float rate;
-//    @JsonProperty("Описание")
-    String description;
-//    @JsonProperty("Начало периода")
-    LocalDate startPeriod;
-//    @JsonProperty("Конец периода")
-    LocalDate endPeriod;
-//    @JsonProperty("Сумма заёма")
-    Long amount;
-//    @JsonProperty("Тип платежей")
-    String paymentType;
-//    @JsonProperty("Общая сумма кредита")
-    Double totalAmount;
-//    @JsonProperty("Переплата в рублях")
-    Double overpayment;
-//    @JsonProperty("Переплата в процентах")
-    Double percentageOverpayment;
+
+    List<MonthPayment> payments; //Платежи
+
+    Float rate; //Ставка
+
+    String description; //Описание
+
+    LocalDate startPeriod; //Начало периода
+
+    LocalDate endPeriod; //Конец периода
+
+    Long amount; //Сумма заёма
+
+    String paymentType; //Тип платежей
+
+    Double totalAmount; //Общая сумма кредита
+
+    Double overpayment; //Переплата в рублях
+
+    Double percentageOverpayment; //Переплата в процентах
 
     public GetCreditPaymentsResponse() {
         payments = new ArrayList<>();
