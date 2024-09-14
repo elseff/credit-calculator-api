@@ -10,3 +10,6 @@ server:
     whitelabel:
       enabled: true
   port: ${SERVER_PORT}
+
+allowed:
+  origins: ${ALLOWED_ORIGINS}
