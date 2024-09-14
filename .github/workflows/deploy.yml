@@ -9,7 +9,7 @@ on:
       - completed
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,11 +32,6 @@ jobs:
         uses: skjolber/maven-cache-github-action@v1
         with:
           step: save
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
 
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.CONTAINER_REGISTRY_USERNAME }} -p ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
