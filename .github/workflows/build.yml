@@ -25,11 +25,9 @@ jobs:
         with:
           step: restore
 
-      - name: Test
-        run: echo ${{ SERVER_PORT }}
-
       - name: Test1
         run: echo ${{ vars.SERVER_PORT }}
+
       - name: Test2
         run: echo ${{ env.SERVER_PORT }}
 
