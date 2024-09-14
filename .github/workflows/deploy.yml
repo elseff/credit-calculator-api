@@ -33,8 +33,8 @@ jobs:
         with:
           step: save
 
-      - name: Login to Docker Hub
-        run: docker login ${{ secrets.CONTAINER_REGISTRY_URL }} -u ${{ secrets.CONTAINER_REGISTRY_USERNAME }} -p ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+      - name: Login to Container Registry
+        run: echo ${{ secrets.CONTAINER_REGISTRY_PASSWORD }} | docker login ${{ secrets.CONTAINER_REGISTRY_URL }} -u ${{ secrets.CONTAINER_REGISTRY_USERNAME }} --password-stdin
 
       - name: Build Docker Image
         run: docker build -t ${{ secrets.CONTAINER_REGISTRY_URL }}/${{ secrets.CONTAINER_REGISTRY_USERNAME }}/${{ secrets.CONTAINER_REGISTRY_API_REPO }} .
