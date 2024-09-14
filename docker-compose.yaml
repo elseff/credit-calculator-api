@@ -3,5 +3,8 @@ services:
   credit-service:
     container_name: credit-calculator-api-container
     image: "${CONTAINER_REGISTRY_URL}/${CONTAINER_REGISTRY_USERNAME}/credit-calculator-api"
+    environment:
+      - "SERVER_PORT=${SERVER_PORT}"
+      - "ALLOWED_ORIGINS=${ALLOWED_ORIGINS}"
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"
