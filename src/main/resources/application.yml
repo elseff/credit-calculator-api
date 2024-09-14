@@ -1,6 +1,6 @@
 spring:
   application:
-    name: credit
+    name: credit-calculator-api
 server:
   error:
     include-message: always
@@ -9,3 +9,4 @@ server:
     include-exception: true
     whitelabel:
       enabled: true
+  port: ${SERVER_PORT}

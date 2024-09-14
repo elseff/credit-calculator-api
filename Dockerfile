@@ -1,11 +1,13 @@
 FROM openjdk:latest
 
-EXPOSE 8080
+ARG SERVER_PORT
 
-COPY target/*.jar /credit-service/app.jar
+EXPOSE ${SERVER_PORT}
 
-VOLUME /credit-service
+COPY target/*.jar /credit-calculator-api/app.jar
 
-WORKDIR /credit-service
+VOLUME /credit-calculator-api
+
+WORKDIR /credit-calculator-api
 
 CMD java -jar app.jar

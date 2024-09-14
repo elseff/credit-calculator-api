@@ -1,9 +1,7 @@
 version: '3'
 services:
   credit-service:
-    container_name: credit-service-container
+    container_name: credit-calculator-api-container
+    image: "${CONTAINER_REGISTRY_URL}/${CONTAINER_REGISTRY_USERNAME}/credit-calculator-api"
     ports:
-      - 8080:8080
-    build:
-      context: .
-      dockerfile: Dockerfile
+      - "${SERVER_PORT}:${SERVER_PORT}"
