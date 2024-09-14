@@ -26,7 +26,7 @@ jobs:
           step: restore
 
       - name: Test
-        run: echo $SERVER_PORT
+        run: echo '$SERVER_PORT'
 
       - name: Build with Maven
         run: mvn -B clean package --file pom.xml
