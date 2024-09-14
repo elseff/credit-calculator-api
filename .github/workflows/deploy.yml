@@ -1,0 +1,48 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [ Build ]
+    branches:
+      - 'master'
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Restore Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        with:
+          step: restore
+
+      - name: Build with Maven
+        run: mvn -B clean package --file pom.xml
+
+      - name: Save Maven Cache
+        uses: skjolber/maven-cache-github-action@v1
+        with:
+          step: save
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.CONTAINER_REGISTRY_USERNAME }} -p ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
+      - name: Build Docker Image
+        run: docker build -t ${{  secrets.CONTAINER_REGISTRY_URL  }}/${{ secrets.CONTAINER_REGISTRY_USERNAME }}/${{ secrets.CONTAINER_REGISTRY_API_REPO }} .
+
+      - name: Publish Docker Image
+        run: docker push ${{ secrets.CONTAINER_REGISTRY_USERNAME }}/${{ secrets.CONTAINER_REGISTRY_API_REPO }}
