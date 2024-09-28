@@ -9,7 +9,7 @@ server:
     include-exception: true
     whitelabel:
       enabled: true
-  port: ${SERVER_PORT}
+  port: ${SERVER_PORT:8080}
 
 allowed:
-  origins: ${ALLOWED_ORIGINS}
+  origins: ${ALLOWED_ORIGINS:localhost:4200}
