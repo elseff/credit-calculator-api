@@ -17,13 +17,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        origins.forEach(
-                origin -> {
-                    registry.addMapping("/**")
-                            .allowedOrigins(origin)
-                            .allowedMethods("*");
-                    log.info("Allowed origin --- " + origin);
-                }
-        );
+//        origins.forEach(
+//                origin -> {
+//                    registry.addMapping("/**")
+//                            .allowedOrigins(origin)
+//                            .allowedMethods("*");
+//                    log.info("Allowed origin --- " + origin);
+//                }
+//        );
+        registry.addMapping("/**").allowedMethods("*");
     }
 }
