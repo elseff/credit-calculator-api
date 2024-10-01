@@ -21,7 +21,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 origin -> {
                     registry.addMapping("/**")
                             .allowedOrigins(origin)
-                            .allowedMethods("*");
+                            .allowedHeaders("*")
+                            .allowedMethods("*")
+                            .exposedHeaders("Content-Type", "Authorization");
                     log.info("Allowed origin --- " + origin);
                 }
         );
