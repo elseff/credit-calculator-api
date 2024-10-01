@@ -17,15 +17,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        origins.forEach(
-                origin -> {
-                    registry.addMapping("/**")
-                            .allowedOrigins(origin)
-                            .allowedHeaders("*")
-                            .allowedMethods("*")
-                            .exposedHeaders("Content-Type", "Authorization");
-                    log.info("Allowed origin --- " + origin);
-                }
-        );
+        registry.addMapping("/**")
+                .allowedOrigins(origins.toArray(new String[0]))
+                .allowedHeaders("*")
+                .allowedMethods("*")
+                .exposedHeaders("Content-Type", "Authorization");
+        log.info("Allowed origins --- " + String.join(", ", origins));
     }
 }
