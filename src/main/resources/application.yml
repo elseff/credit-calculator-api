@@ -20,6 +20,5 @@ server:
     remoteip:
       remote-ip-header: x-forwarded-for
 
-
 allowed:
   origins: ${ALLOWED_ORIGINS:localhost:4200}
