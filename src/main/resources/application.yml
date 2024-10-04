@@ -15,6 +15,11 @@ server:
     whitelabel:
       enabled: true
   port: ${SERVER_PORT:8080}
+  forward-headers-strategy: native
+  tomcat:
+    remoteip:
+      remote-ip-header: x-forwarded-for
+
 
 allowed:
   origins: ${ALLOWED_ORIGINS:localhost:4200}
