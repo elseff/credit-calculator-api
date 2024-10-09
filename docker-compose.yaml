@@ -10,6 +10,6 @@ services:
       - "${SERVER_PORT}:${SERVER_PORT}"
     healthcheck:
       test: [ 'CMD', 'curl', '-f','http://localhost:$SERVER_PORT/actuator/health' ]
-      interval: 1h
+      interval: 30m
       timeout: 5s
       retries: 5
